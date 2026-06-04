@@ -10,6 +10,7 @@ import { RequestPage } from './pages/RequestPage';
 import { StatsPage } from './pages/StatsPage';
 import { RecommendPage } from './pages/RecommendPage';
 import { ExplorePage } from './pages/ExplorePage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="stats" element={<StatsPage />} />
             <Route path="recommend" element={<RecommendPage />} />
             <Route path="explore" element={<ExplorePage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

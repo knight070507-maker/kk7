@@ -138,54 +138,42 @@ export function RecommendPage() {
   const [result, setResult] = useState<SkinResultType | null>(null);
   const savedSkin = (() => { try { return localStorage.getItem('user-skin-type'); } catch { return null; } })();
 
+  const computeResult = (finalScores: Record<string, number>) => {
+    const sorted = Object.entries(finalScores).sort(([, a], [, b]) => b - a);
+    const map: Record<string, SkinResultType> = { dry: '干性肌', oily: '油性肌', combo: '混合肌', sensitive: '敏感肌', acne: '痘痘肌', normal: '中性肌' };
+    const skinResult = map[sorted[0]?.[0]] || '中性肌';
+    setResult(skinResult);
+    localStorage.setItem('user-skin-type', skinResult);
+    setStep('result');
+  };
+
   const handleAnswer = (option: typeof questions[0]['options'][0]) => {
-    const newScores = { ...scores };
     if (currentQ === 5) {
-      // 多选
+      // 多选：只切换选择状态，不改变分数
       const newSet = new Set(multiSelect);
-      if (newSet.has(option.label)) newSet.delete(option.label);
-      else newSet.add(option.label);
+      if (newSet.has(option.label)) newSet.delete(option.label); else newSet.add(option.label);
       setMultiSelect(newSet);
       return;
     }
-    Object.entries(option.scores).forEach(([key, val]) => {
-      newScores[key] = (newScores[key] || 0) + val;
+    // 单选题：直接计分
+    const newScores = { ...scores };
+    Object.entries(option.scores).forEach(([key, val]) => { newScores[key] = (newScores[key] || 0) + val; });
+    setScores(newScores);
+    if (currentQ < questions.length - 1) { setCurrentQ(currentQ + 1); }
+    else { computeResult(newScores); }
+  };
+
+  const handleMultiNext = () => {
+    if (multiSelect.size === 0) return;
+    const newScores = { ...scores };
+    multiSelect.forEach(label => {
+      const opt = questions[5].options.find(o => o.label === label);
+      if (opt) Object.entries(opt.scores).forEach(([key, val]) => { newScores[key] = (newScores[key] || 0) + val; });
     });
     setScores(newScores);
-
-    if (currentQ === 5 && multiSelect.size > 0) {
-      multiSelect.forEach(label => {
-        const opt = questions[5].options.find(o => o.label === label);
-        if (opt) Object.entries(opt.scores).forEach(([key, val]) => {
-          newScores[key] = (newScores[key] || 0) + val;
-        });
-      });
-    }
-
-    if (currentQ < questions.length - 1) {
-      setCurrentQ(currentQ + 1);
-    } else {
-      // 算出最终结果
-      const finalScores = { ...newScores };
-      if (currentQ === 5) {
-        multiSelect.forEach(label => {
-          const opt = questions[5].options.find(o => o.label === label);
-          if (opt) Object.entries(opt.scores).forEach(([key, val]) => {
-            finalScores[key] = (finalScores[key] || 0) + val;
-          });
-        });
-      }
-      const sorted = Object.entries(finalScores).sort(([, a], [, b]) => b - a);
-      const primary = sorted[0]?.[0];
-      const map: Record<string, SkinResultType> = {
-        dry: '干性肌', oily: '油性肌', combo: '混合肌',
-        sensitive: '敏感肌', acne: '痘痘肌', normal: '中性肌',
-      };
-      const skinResult = map[primary] || '中性肌';
-      setResult(skinResult);
-      localStorage.setItem('user-skin-type', skinResult);
-      setStep('result');
-    }
+    setMultiSelect(new Set());
+    if (currentQ < questions.length - 1) { setCurrentQ(currentQ + 1); }
+    else { computeResult(newScores); }
   };
 
   const restart = () => {
@@ -251,38 +239,8 @@ export function RecommendPage() {
           </div>
 
           {isMulti && (
-            <button
-              onClick={() => {
-                if (currentQ < questions.length - 1) {
-                  const newScores = { ...scores };
-                  multiSelect.forEach(label => {
-                    const opt = questions[5].options.find(o => o.label === label);
-                    if (opt) Object.entries(opt.scores).forEach(([key, val]) => {
-                      newScores[key] = (newScores[key] || 0) + val;
-                    });
-                  });
-                  setScores(newScores);
-                  setCurrentQ(currentQ + 1);
-                  setMultiSelect(new Set());
-                } else {
-                  const finalScores = { ...scores };
-                  multiSelect.forEach(label => {
-                    const opt = questions[5].options.find(o => o.label === label);
-                    if (opt) Object.entries(opt.scores).forEach(([key, val]) => {
-                      finalScores[key] = (finalScores[key] || 0) + val;
-                    });
-                  });
-                  const sorted = Object.entries(finalScores).sort(([, a], [, b]) => b - a);
-                  const map: Record<string, SkinResultType> = { dry: '干性肌', oily: '油性肌', combo: '混合肌', sensitive: '敏感肌', acne: '痘痘肌', normal: '中性肌' };
-                  const skinResult = map[sorted[0]?.[0]] || '中性肌';
-                  setResult(skinResult);
-                  localStorage.setItem('user-skin-type', skinResult);
-                  setStep('result');
-                }
-              }}
-              disabled={multiSelect.size === 0}
-              className="mt-3 w-full py-2.5 bg-purple-500 hover:bg-purple-600 disabled:bg-gray-300 text-white font-medium rounded-xl transition-colors"
-            >
+            <button onClick={handleMultiNext} disabled={multiSelect.size === 0}
+              className="mt-3 w-full py-2.5 bg-purple-500 hover:bg-purple-600 disabled:bg-gray-300 text-white font-medium rounded-xl transition-colors">
               {isLast ? '查看测试结果 →' : `下一步 (已选 ${multiSelect.size} 项)`}
             </button>
           )}

@@ -4,9 +4,17 @@ import { bestCleansers, bestSerums, bestMoisturizers, bestSunscreens, type Edito
 
 function PickCard({ pick }: { pick: EditorPick }) {
   const navigate = useNavigate();
+  const handleClick = () => {
+    // Try to find matching product in DB for direct link
+    const matchId = pick.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-');
+    import('../data/products').then(({ getProductById }) => {
+      const found = getProductById(matchId);
+      if (found) navigate(`/product/${found.id}`);
+      else navigate('/search?q=' + encodeURIComponent(pick.name));
+    });
+  };
   return (
-    <div
-      onClick={() => navigate('/search?q=' + encodeURIComponent(pick.name))}
+    <div onClick={handleClick}
       className="p-4 bg-white rounded-xl border border-gray-200 hover:border-purple-300 hover:shadow-md cursor-pointer transition-all"
     >
       <div className="flex items-start justify-between mb-2">

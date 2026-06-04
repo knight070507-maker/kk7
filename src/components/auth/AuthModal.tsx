@@ -71,7 +71,12 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
           </button>
         </form>
 
-        <p className="mt-4 text-center text-sm text-gray-500">
+        {isLogin && (
+          <p className="mt-2 text-center text-xs text-gray-400">
+            忘记密码？请在 Supabase 后台重置，或联系网站管理员。
+          </p>
+        )}
+        <p className="mt-3 text-center text-sm text-gray-500">
           {isLogin ? '还没有账号？' : '已有账号？'}
           <button
             onClick={() => { setIsLogin(!isLogin); setError(''); setSuccess(''); }}

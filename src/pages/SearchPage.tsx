@@ -315,7 +315,7 @@ export function SearchPage() {
                     <div className={`w-1.5 h-8 rounded-full shrink-0 mt-0.5 ${ing.riskLevel === 0 ? 'bg-green-400' : ing.riskLevel === 1 ? 'bg-yellow-400' : ing.riskLevel === 2 ? 'bg-orange-400' : 'bg-red-400'}`} />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="font-medium text-gray-800 text-sm">{ing.name}</span>
+                        <span className="font-medium text-gray-800 text-sm cursor-pointer hover:text-purple-600 underline decoration-dotted" onClick={() => navigate(`/search?q=${encodeURIComponent(ing.name)}`)}>{ing.name}</span>
                         <span className="text-xs text-gray-400 hidden sm:inline">{ing.nameEn}</span>
                         <RiskBadge level={ing.riskLevel as any} size="sm" />
                       </div>
