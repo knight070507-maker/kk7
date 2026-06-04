@@ -131,6 +131,14 @@ export function ProductDetailPage() {
         )}
       </div>
 
+      {/* 对比按钮 */}
+      <div className="mb-4">
+        <button onClick={() => navigate(`/compare?a=${product.id}`)}
+          className="px-4 py-2 bg-purple-50 text-purple-600 border border-purple-200 rounded-xl hover:bg-purple-100 transition-colors text-sm font-medium">
+          📊 对比其他产品
+        </button>
+      </div>
+
       {/* 成分分析总览 */}
       <div className="mb-8">
         <ProductAnalysisSummary analysis={analysis} />

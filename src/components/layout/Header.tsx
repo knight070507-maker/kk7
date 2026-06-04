@@ -2,22 +2,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { UserMenu } from '../auth/UserMenu';
 import { AuthModal } from '../auth/AuthModal';
+import { SearchAutocomplete } from '../common/SearchAutocomplete';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../lib/supabase';
 
 export function Header() {
   const navigate = useNavigate();
   const { user } = useAuth();
-  const [searchText, setSearchText] = useState('');
   const [showAuth, setShowAuth] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [history, setHistory] = useState<{ query: string; created_at: string }[]>([]);
   const [showHistory, setShowHistory] = useState(false);
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchText.trim()) navigate(`/search?q=${encodeURIComponent(searchText.trim())}`);
-  };
 
   const loadHistory = async () => {
     if (!user) return;
@@ -48,6 +43,7 @@ export function Header() {
             <Link to="/explore" className="hover:text-purple-600 transition-colors">🏆 精选</Link>
             <Link to="/recommend" className="hover:text-purple-600 transition-colors">🧬 肤质</Link>
             <Link to="/ingredients" className="hover:text-purple-600 transition-colors">🧪 成分</Link>
+            <Link to="/stats" className="hover:text-purple-600 transition-colors">📊</Link>
             {user && (
               <button onClick={loadHistory} className="hover:text-purple-600 transition-colors relative">📜
                 {showHistory && (
@@ -69,11 +65,8 @@ export function Header() {
             )}
           </nav>
 
-          {/* Search */}
-          <form onSubmit={handleSearch} className="flex-1 max-w-sm">
-            <input type="text" value={searchText} onChange={(e) => setSearchText(e.target.value)}
-              placeholder="搜索产品..." className="w-full px-3 py-2 text-sm rounded-full border border-gray-300 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 outline-none transition-all" />
-          </form>
+          {/* Search with autocomplete */}
+          <SearchAutocomplete />
 
           <UserMenu onLoginClick={() => setShowAuth(true)} />
         </div>

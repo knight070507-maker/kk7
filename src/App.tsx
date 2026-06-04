@@ -11,6 +11,7 @@ import { StatsPage } from './pages/StatsPage';
 import { RecommendPage } from './pages/RecommendPage';
 import { ExplorePage } from './pages/ExplorePage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { ComparePage } from './pages/ComparePage';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="stats" element={<StatsPage />} />
             <Route path="recommend" element={<RecommendPage />} />
             <Route path="explore" element={<ExplorePage />} />
+            <Route path="compare" element={<ComparePage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
