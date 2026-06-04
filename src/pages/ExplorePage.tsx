@@ -2,16 +2,15 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { bestCleansers, bestSerums, bestMoisturizers, bestSunscreens, type EditorPick } from '../data/recommendations';
 
+import { productDB } from '../data/products';
+
 function PickCard({ pick }: { pick: EditorPick }) {
   const navigate = useNavigate();
   const handleClick = () => {
-    // Try to find matching product in DB for direct link
     const matchId = pick.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-');
-    import('../data/products').then(({ getProductById }) => {
-      const found = getProductById(matchId);
-      if (found) navigate(`/product/${found.id}`);
-      else navigate('/search?q=' + encodeURIComponent(pick.name));
-    });
+    const found = productDB.find(p => p.id.includes(matchId) || matchId.includes(p.id));
+    if (found) navigate(`/product/${found.id}`);
+    else navigate('/search?q=' + encodeURIComponent(pick.name));
   };
   return (
     <div onClick={handleClick}
