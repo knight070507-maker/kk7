@@ -45,7 +45,7 @@ export function UserMenu({ onLoginClick }: UserMenuProps) {
               onClick={() => { signOut(); setOpen(false); }}
               className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
             >
-              🚪 退出登录
+              退出登录
             </button>
           </div>
         </>

@@ -35,7 +35,7 @@ export function SearchBar({ onSearch, placeholder = '搜索产品名称或成分
             large ? 'px-6 py-2 text-base' : 'px-5 py-1.5 text-sm'
           } bg-stone-800 hover:bg-stone-700 text-white font-medium rounded-xl transition-colors`}
         >
-          🔍 搜索
+          搜索
         </button>
       </div>
     </form>

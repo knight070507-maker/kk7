@@ -35,7 +35,7 @@ export function IngredientListPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">🧪 成分百科</h1>
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">成分百科</h1>
 
       {/* 搜索 */}
       <div className="mb-6">

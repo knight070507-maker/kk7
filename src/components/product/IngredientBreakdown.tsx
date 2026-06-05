@@ -25,7 +25,7 @@ export function IngredientBreakdown({ ingredients }: IngredientBreakdownProps) {
     <div className="space-y-2">
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-semibold text-gray-800">
-          📋 完整成分列表（{ingredients.length} 种）
+          完整成分列表（{ingredients.length} 种）
         </h3>
         <span className="text-xs text-gray-400">按含量从高到低排列</span>
       </div>

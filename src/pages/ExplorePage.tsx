@@ -41,7 +41,7 @@ function PickCard({ pick }: { pick: EditorPick }) {
           <span key={s} className="px-2 py-0.5 text-xs bg-gray-100 text-gray-500 rounded-full">{s}</span>
         ))}
       </div>
-      <p className="text-xs text-gray-500 italic">💬 {pick.editorNote}</p>
+      <p className="text-xs text-gray-500 italic">{pick.editorNote}</p>
       <p className="text-xs text-orange-500 mt-1">⚠️ {pick.drawback}</p>
     </div>
   );
@@ -59,20 +59,20 @@ export function ExplorePage() {
   useEffect(() => { setSavedSkin(getSavedSkinType()); }, []);
 
   const sections = [
-    { key: 'cleanser' as const, title: '🧴 洁面', data: bestCleansers },
-    { key: 'serum' as const, title: '🧪 精华', data: bestSerums },
-    { key: 'moisturizer' as const, title: '🧴 面霜', data: bestMoisturizers },
-    { key: 'sunscreen' as const, title: '☀️ 防晒', data: bestSunscreens },
+    { key: 'cleanser' as const, title: '洁面', data: bestCleansers },
+    { key: 'serum' as const, title: '精华', data: bestSerums },
+    { key: 'moisturizer' as const, title: '面霜', data: bestMoisturizers },
+    { key: 'sunscreen' as const, title: '防晒', data: bestSunscreens },
   ];
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-gray-800 mb-1">🏆 全球编辑精选</h1>
+      <h1 className="text-2xl font-bold text-gray-800 mb-1">编辑精选</h1>
       <p className="text-sm text-gray-500 mb-2">基于皮肤科医生共识 + 化妆品化学家分析 + 全球口碑。不迷信品牌，只相信配方和效果。</p>
 
       {savedSkin && (
         <div className="mb-6 p-3 bg-stone-100 rounded-xl border border-stone-300 text-sm text-stone-700 flex items-center gap-2">
-          💡 你的肤质是 <strong>{savedSkin}</strong>，已为你标注特别适合的产品。
+          你的肤质是 <strong>{savedSkin}</strong>，已为你标注特别适合的产品。
           <button onClick={() => navigate('/recommend')} className="ml-2 underline font-medium">查看完整方案 →</button>
         </div>
       )}
@@ -100,13 +100,13 @@ export function ExplorePage() {
 
       {/* Trending 实时推荐 */}
       <div className="mt-8 mb-6">
-        <h2 className="text-lg font-bold text-gray-800 mb-1">🔥 实时热门 & 社区精选</h2>
+        <h2 className="text-lg font-bold text-gray-800 mb-1">实时热门 & 社区精选</h2>
         <p className="text-xs text-gray-400 mb-4">基于搜索数据 + 社区讨论热度，定期更新。</p>
 
         {/* 换季提醒 */}
         {savedSkin && (
           <div className="p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl border border-amber-200 mb-4">
-            <h4 className="font-semibold text-amber-800 text-sm mb-2">🍂 换季提醒</h4>
+            <h4 className="font-semibold text-amber-800 text-sm mb-2">换季提醒</h4>
             <p className="text-xs text-amber-700">
               {savedSkin === '干性肌' && '秋冬空气干燥，干皮需要从"补水精华+乳液"升级为"修复精华+厚重面霜"。推荐加入角鲨烷油或神经酰胺面霜。'}
               {savedSkin === '油性肌' && '换季时油皮容易出现"外油内干"——不要停用保湿！继续用水杨酸控制油脂，但面霜换成啫喱质地的。'}
@@ -121,7 +121,7 @@ export function ExplorePage() {
         {/* 社区热门 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
           <div className="p-4 bg-white rounded-xl border border-gray-200">
-            <h4 className="font-semibold text-gray-800 text-sm mb-2">🗣️ 社区讨论最热</h4>
+            <h4 className="font-semibold text-gray-800 text-sm mb-2">社区讨论</h4>
             {[
               { name: '修丽可CE精华', reason: '抗氧化天花板，值得花1490吗？社区一致意见：值' },
               { name: 'Beauty of Joseon防晒', reason: '韩国防晒在欧美爆火，Reddit每天都有人发帖问' },
@@ -140,7 +140,7 @@ export function ExplorePage() {
           </div>
 
           <div className="p-4 bg-white rounded-xl border border-gray-200">
-            <h4 className="font-semibold text-gray-800 text-sm mb-2">⭐ 口碑炸裂新品</h4>
+            <h4 className="font-semibold text-gray-800 text-sm mb-2">口碑新品</h4>
             {[
               { name: 'Prequel Gleanser', reason: '50%甘油洁面，2024年最被低估的创新产品' },
               { name: 'Dieux Instant Angel', reason: '3:1:1屏障仿生比例，成分党的新宠面霜' },

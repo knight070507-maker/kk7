@@ -40,7 +40,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       <div className="bg-white rounded-2xl p-6 w-full max-w-sm shadow-xl" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-gray-800">
-            {isLogin ? '👋 登录' : '✨ 注册'}
+            {isLogin ? '登录' : '注册'}
           </h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
         </div>

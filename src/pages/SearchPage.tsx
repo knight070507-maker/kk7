@@ -171,7 +171,7 @@ export function SearchPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">🔍 搜索</h1>
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">搜索</h1>
       <SearchBar onSearch={handleSearch} initialValue={query} placeholder="输入产品名称、品牌或成分名称..." />
 
       {query && (
@@ -182,7 +182,7 @@ export function SearchPage() {
         {/* 本地产品结果 */}
         {localResults.products.length > 0 && (
           <section className="mb-10">
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">📦 数据库中已有（{localResults.products.length}）</h2>
+            <h2 className="text-lg font-semibold text-gray-800 mb-4"> 数据库中已有（{localResults.products.length}）</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {localResults.products.map(({ product, analysis }) => (
                 <ProductCard key={product.id} product={product} analysis={analysis} />
@@ -194,7 +194,7 @@ export function SearchPage() {
         {/* 成分结果 */}
         {localResults.ingredients.length > 0 && (
           <section className="mb-10">
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">🧪 相关成分（{localResults.ingredients.length}）</h2>
+            <h2 className="text-lg font-semibold text-gray-800 mb-4"> 相关成分（{localResults.ingredients.length}）</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {localResults.ingredients.map((ing) => (
                 <IngredientCard key={ing.id} ingredient={ing} />
@@ -231,7 +231,7 @@ export function SearchPage() {
         {/* AI 错误 */}
         {aiError && (
           <div className="text-center py-12 bg-red-50 rounded-2xl border border-red-200">
-            <span className="text-5xl">😕</span>
+            <span className="text-5xl"></span>
             <p className="mt-4 text-lg text-red-600">{aiError}</p>
             <button onClick={runAIAnalysis} className="mt-4 px-6 py-2 bg-red-100 text-red-700 rounded-xl hover:bg-red-200 transition-colors font-medium">
               🔄 重试
@@ -282,7 +282,7 @@ export function SearchPage() {
                   {getValueLabel(r.valueRating!)}
                 </span>
               </div>
-              <p className="text-sm text-gray-500 mb-3">💬 {r.summary}</p>
+              <p className="text-sm text-gray-500 mb-3">{r.summary}</p>
               <div className="flex items-center gap-3 text-xs text-gray-600 mb-3">
                 <span>🔴 <span className="font-medium">{r.harmfulCount}</span> 有害</span>
                 <span>🟡 <span className="font-medium">{r.irritantCount}</span> 刺激</span>
@@ -307,7 +307,7 @@ export function SearchPage() {
               )}
             </div>
             <div className="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-gray-100">
-              <h3 className="font-semibold text-gray-800 mb-4">📋 AI 分析的成分列表</h3>
+              <h3 className="font-semibold text-gray-800 mb-4">AI 分析的成分列表</h3>
               <div className="space-y-2">
                 {r.ingredients!.map((ing, idx) => (
                   <div key={idx} className="flex items-start gap-3 p-3 rounded-lg border border-gray-100 hover:bg-gray-50 transition-colors">

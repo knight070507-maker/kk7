@@ -14,7 +14,7 @@ interface Question {
 const questions: Question[] = [
   {
     id: 1, question: '洗脸30分钟后，什么都不涂，你的脸感觉？',
-    emoji: '🧼',
+    emoji: '',
     illustration: '正常皮肤洗完脸后，皮脂膜会在30分钟内恢复。通过这个测试可以判断你的皮脂分泌水平。',
     options: [
       { label: 'A', text: '紧绷、起皮、笑起来有干纹', scores: { dry: 3, sensitive: 1 } },
@@ -48,7 +48,7 @@ const questions: Question[] = [
   },
   {
     id: 4, question: '尝试新护肤品时，皮肤的反应是？',
-    emoji: '🧪',
+    emoji: '',
     illustration: '皮肤屏障的健康程度决定了你的"耐受性"。屏障受损的皮肤对外界刺激反应更大。',
     options: [
       { label: 'A', text: '基本上什么都能用，从不过敏', scores: { normal: 3 } },
@@ -206,7 +206,7 @@ export function RecommendPage() {
             <span className="text-3xl">{q.emoji}</span>
             <div>
               <h2 className="text-lg md:text-xl font-bold text-gray-800">{q.question}</h2>
-              <p className="text-xs text-gray-400 mt-1 flex items-center gap-1">💡 {q.illustration}</p>
+              <p className="text-xs text-gray-400 mt-1 flex items-center gap-1">{q.illustration}</p>
             </div>
           </div>
 
@@ -331,7 +331,7 @@ export function RecommendPage() {
               </div>
             </div>
             <div className="p-4 bg-green-50 rounded-2xl border border-green-200">
-              <h4 className="font-semibold text-green-700 mb-2 text-sm">✅ 应该寻找</h4>
+              <h4 className="font-semibold text-green-700 mb-2 text-sm">应该寻找</h4>
               <div className="flex flex-wrap gap-1">
                 {recommendation.seekIngredients.map(ing => (
                   <span key={ing} className="px-2 py-0.5 text-xs bg-white text-green-600 rounded-full border border-green-200">{ing}</span>
@@ -351,7 +351,7 @@ export function RecommendPage() {
         </div>
 
         <p className="text-center text-xs text-gray-400 mt-4">
-          💡 你的测试结果已保存。下次打开首页会为你推荐适合{result}的产品。
+          你的测试结果已保存。下次打开首页会为你推荐适合{result}的产品。
         </p>
       </div>
     );

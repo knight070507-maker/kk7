@@ -4,7 +4,7 @@ import { productCategoryLabels } from '../../data/products';
 import { getRatingLabel } from '../../utils/analysis';
 
 const categoryEmoji: Record<string, string> = {
-  cleanser: '🧼', toner: '💧', serum: '🧪', moisturizer: '🧴', sunscreen: '☀️', mask: '🎭', other: '📦',
+  cleanser: '', toner: '', serum: '', moisturizer: '🧴', sunscreen: '☀️', mask: '', other: '',
 };
 
 interface ProductCardProps { product: Product; analysis: ProductAnalysis; }
@@ -26,7 +26,7 @@ export function ProductCard({ product, analysis }: ProductCardProps) {
       {/* 类别图标 + 品牌 */}
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-1.5">
-          <span className="text-lg">{categoryEmoji[product.category] || '📦'}</span>
+          <span className="text-lg">{categoryEmoji[product.category] || ''}</span>
           <span className="text-xs px-2 py-0.5 bg-white/80 rounded-full border border-gray-200 text-gray-500">{productCategoryLabels[product.category]}</span>
         </div>
         <span className="text-xs text-gray-400">{product.brand}</span>

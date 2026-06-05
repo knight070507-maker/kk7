@@ -51,7 +51,7 @@ export function RequestPage() {
         ← 返回
       </button>
 
-      <h1 className="text-2xl font-bold text-gray-800 mb-2">📝 申请分析产品</h1>
+      <h1 className="text-2xl font-bold text-gray-800 mb-2">申请分析产品</h1>
       <p className="text-gray-500 mb-8">
         数据库里没找到你要的产品？提交申请，我们会尽快分析它的成分。
       </p>
@@ -140,7 +140,7 @@ export function RequestPage() {
                     req.status === 'analyzing' ? 'bg-blue-100 text-blue-700' :
                     'bg-yellow-100 text-yellow-700'
                   }`}>
-                    {req.status === 'completed' ? '✅ 已收录' :
+                    {req.status === 'completed' ? '已收录' :
                      req.status === 'analyzing' ? '🔬 分析中' : '⏳ 排队中'}
                   </span>
                 </div>
@@ -152,10 +152,10 @@ export function RequestPage() {
 
       {/* 说明 */}
       <div className="mt-10 p-6 bg-stone-100 rounded-2xl border border-stone-300">
-        <h3 className="font-semibold text-purple-800 mb-3">💡 关于产品分析</h3>
+        <h3 className="font-semibold text-purple-800 mb-3">关于产品分析</h3>
         <div className="space-y-2 text-sm text-stone-700">
           <p>📊 <strong>我们怎么分析？</strong> 通过查询公开成分数据库和品牌官方信息，获取产品的完整成分表。</p>
-          <p>🧪 <strong>每个成分都会：</strong> 标注风险等级、解释对皮肤的作用、说明适合什么肤质。</p>
+          <p> <strong>每个成分都会：</strong> 标注风险等级、解释对皮肤的作用、说明适合什么肤质。</p>
           <p>🔍 <strong>双重验证：</strong> 数据来源 + 人工复核，确保不胡编乱造。</p>
           <p>📝 <strong>分析结果：</strong> 和现有产品一样的格式——适合肤质、针对问题、优缺点、性价比评价。</p>
         </div>

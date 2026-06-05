@@ -17,7 +17,7 @@ export function ProductDetailPage() {
   if (!product) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-16 text-center">
-        <span className="text-5xl">😕</span>
+        <span className="text-5xl"></span>
         <p className="mt-4 text-lg text-gray-500">找不到这个产品</p>
         <button onClick={() => navigate('/')} className="mt-4 text-stone-700 hover:text-stone-700 font-medium">
           ← 返回首页
@@ -61,7 +61,7 @@ export function ProductDetailPage() {
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800">{product.name}</h1>
         {product.summary && (
-          <p className="mt-2 text-gray-500 text-sm">💬 {product.summary}</p>
+          <p className="mt-2 text-gray-500 text-sm">{product.summary}</p>
         )}
       </div>
 
@@ -97,7 +97,7 @@ export function ProductDetailPage() {
         {/* 适合肤质 */}
         {product.suitableFor && product.suitableFor.length > 0 && (
           <div className="p-4 bg-white rounded-xl border border-green-200">
-            <h4 className="text-sm font-semibold text-green-700 mb-2">✅ 适合肤质</h4>
+            <h4 className="text-sm font-semibold text-green-700 mb-2">适合肤质</h4>
             <div className="flex flex-wrap gap-1">
               {product.suitableFor.map((s) => (
                 <span key={s} className="px-2 py-0.5 text-xs bg-green-50 text-green-700 rounded-full">{s}</span>
@@ -151,7 +151,7 @@ export function ProductDetailPage() {
       <div className="mb-4 flex gap-2 flex-wrap">
         <button onClick={() => navigate(`/compare?a=${product.id}`)}
           className="px-4 py-2 bg-stone-100 dark:bg-purple-900/30 text-stone-700 dark:text-stone-500 border border-stone-300 dark:border-purple-800 rounded-xl hover:bg-stone-200 dark:hover:bg-purple-900/50 transition-colors text-sm font-medium">
-          📊 对比其他产品
+          对比其他产品
         </button>
         <button onClick={() => {
           const url = window.location.href;
@@ -159,7 +159,7 @@ export function ProductDetailPage() {
           else { navigator.clipboard.writeText(url).then(() => alert('链接已复制！')); }
         }}
           className="px-4 py-2 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-sm font-medium">
-          📤 分享
+          分享
         </button>
       </div>
 
@@ -175,7 +175,7 @@ export function ProductDetailPage() {
 
       {/* 底部提示 */}
       <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-200 text-sm text-blue-700">
-        💡 <strong>温馨提示：</strong>成分表按含量从高到低排列，排名越靠前含量越高。一般前5-7种成分占了产品的大部分。
+        <strong>温馨提示：</strong>成分表按含量从高到低排列，排名越靠前含量越高。一般前5-7种成分占了产品的大部分。
       </div>
     </div>
     </>

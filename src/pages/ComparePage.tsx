@@ -143,7 +143,7 @@ export function ComparePage() {
         <button onClick={() => setPicker(side)} aria-label="选择产品进行对比"
           className="w-full h-48 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl flex items-center justify-center text-gray-400 dark:text-gray-500 hover:border-stone-500 hover:text-stone-500 transition-colors">
           <div className="text-center">
-            <span className="text-3xl block mb-2">📦</span>
+            <span className="text-3xl block mb-2"></span>
             <span className="text-sm">点击选择产品</span>
           </div>
         </button>
@@ -153,7 +153,7 @@ export function ComparePage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-1">📊 产品成分对比</h1>
+      <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-1">产品成分对比</h1>
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">并排对比成分、安全性、性价比——帮你做出护肤决策。</p>
 
       {/* 对比区 */}
@@ -187,7 +187,7 @@ export function ComparePage() {
           {/* 相同成分 */}
           {comparison.shared.length > 0 && (
             <div className="mb-4">
-              <h3 className="text-sm font-semibold text-green-700 dark:text-green-400 mb-2">✅ 相同成分（{comparison.shared.length}种）</h3>
+              <h3 className="text-sm font-semibold text-green-700 dark:text-green-400 mb-2">相同成分（{comparison.shared.length}种）</h3>
               <div className="flex flex-wrap gap-1">
                 {comparison.shared.map(ing => (
                   <span key={ing.id} onClick={() => navigate(`/ingredient/${ing.id}`)}

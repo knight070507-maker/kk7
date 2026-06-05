@@ -19,8 +19,8 @@ export function SearchAutocomplete() {
 
   const suggestions = text.trim().length >= 2
     ? [
-        ...productDB.filter(p => p.name.toLowerCase().includes(text.toLowerCase()) || p.brand.toLowerCase().includes(text.toLowerCase())).slice(0, 4).map(p => ({ type: '📦', label: p.name, sub: p.brand, path: `/product/${p.id}` })),
-        ...allIngredients.filter(i => i.name.includes(text) || i.nameEn.toLowerCase().includes(text.toLowerCase())).slice(0, 3).map(i => ({ type: '🧪', label: i.name, sub: i.nameEn, path: `/ingredient/${i.id}` })),
+        ...productDB.filter(p => p.name.toLowerCase().includes(text.toLowerCase()) || p.brand.toLowerCase().includes(text.toLowerCase())).slice(0, 4).map(p => ({ type: '', label: p.name, sub: p.brand, path: `/product/${p.id}` })),
+        ...allIngredients.filter(i => i.name.includes(text) || i.nameEn.toLowerCase().includes(text.toLowerCase())).slice(0, 3).map(i => ({ type: '', label: i.name, sub: i.nameEn, path: `/ingredient/${i.id}` })),
       ].slice(0, 6)
     : [];
 

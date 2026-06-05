@@ -193,7 +193,7 @@ export function StatsPage() {
 
         {/* 页面访问分布 */}
         <div className="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm">
-          <h3 className="font-semibold text-gray-800 mb-4">📄 页面访问量</h3>
+          <h3 className="font-semibold text-gray-800 mb-4">页面访问量</h3>
           {stats.pageViews.length === 0 ? (
             <p className="text-sm text-gray-400">暂无数据</p>
           ) : (
@@ -217,7 +217,7 @@ export function StatsPage() {
 
       {/* 最近搜索 */}
       <div className="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm">
-        <h3 className="font-semibold text-gray-800 mb-4">🕐 最近20条搜索</h3>
+        <h3 className="font-semibold text-gray-800 mb-4">最近20条搜索</h3>
         {stats.recentSearches.length === 0 ? (
           <p className="text-sm text-gray-400">暂无搜索记录</p>
         ) : (
@@ -236,7 +236,7 @@ export function StatsPage() {
                     <td className="py-2 text-gray-700">🔍 {s.query}</td>
                     <td className="py-2">
                       <span className={`px-2 py-0.5 text-xs rounded-full ${s.source === 'ai' ? 'bg-stone-200 text-stone-700' : 'bg-gray-100 text-gray-600'}`}>
-                        {s.source === 'ai' ? '🤖 AI' : '📦 本地'}
+                        {s.source === 'ai' ? '🤖 AI' : ' 本地'}
                       </span>
                     </td>
                     <td className="py-2 text-gray-400 text-xs">{s.created_at}</td>

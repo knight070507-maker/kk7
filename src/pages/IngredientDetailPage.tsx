@@ -16,7 +16,7 @@ export function IngredientDetailPage() {
   if (!ingredient) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <span className="text-5xl">😕</span>
+        <span className="text-5xl"></span>
         <p className="mt-4 text-lg text-gray-500">找不到这个成分</p>
         <button
           onClick={() => navigate('/ingredients')}
@@ -80,7 +80,7 @@ export function IngredientDetailPage() {
 
         {/* 适合肤质 */}
         <div className="p-4 bg-white rounded-xl border border-gray-200">
-          <h4 className="text-sm text-gray-500 mb-2">✅ 适合的肤质</h4>
+          <h4 className="text-sm text-gray-500 mb-2">适合的肤质</h4>
           <div className="flex flex-wrap gap-1">
             {ingredient.goodFor.length > 0 ? (
               ingredient.goodFor.map((s) => (
@@ -94,7 +94,7 @@ export function IngredientDetailPage() {
 
         {/* 不适合肤质 */}
         <div className="p-4 bg-white rounded-xl border border-gray-200">
-          <h4 className="text-sm text-gray-500 mb-2">❌ 不适合的肤质</h4>
+          <h4 className="text-sm text-gray-500 mb-2">不适合的肤质</h4>
           <div className="flex flex-wrap gap-1">
             {ingredient.badFor.length > 0 ? (
               ingredient.badFor.map((s) => (
@@ -120,7 +120,7 @@ export function IngredientDetailPage() {
       {relatedProducts.length > 0 && (
         <div className="p-4 bg-white rounded-xl border border-gray-200">
           <h4 className="font-semibold text-gray-800 mb-3">
-            📦 含有此成分的产品（{relatedProducts.length} 个）
+            含有此成分的产品（{relatedProducts.length} 个）
           </h4>
           <div className="space-y-2">
             {relatedProducts.map((p) => (
