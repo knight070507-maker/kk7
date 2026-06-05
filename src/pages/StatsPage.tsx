@@ -124,7 +124,7 @@ export function StatsPage() {
 
   if (loading) return (
     <div className="max-w-4xl mx-auto px-4 py-16 text-center">
-      <div className="inline-block w-12 h-12 border-4 border-purple-200 border-t-purple-500 rounded-full animate-spin" />
+      <div className="inline-block w-12 h-12 border-4 border-stone-300 border-t-stone-800 rounded-full animate-spin" />
       <p className="mt-4 text-gray-500">加载统计数据...</p>
     </div>
   );
@@ -140,7 +140,7 @@ export function StatsPage() {
     <div className="max-w-6xl mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-gray-800">📊 网站统计数据</h1>
-        <button onClick={loadStats} className="px-4 py-2 text-sm bg-purple-50 text-purple-600 rounded-xl hover:bg-purple-100 transition-colors">
+        <button onClick={loadStats} className="px-4 py-2 text-sm bg-stone-100 text-stone-700 rounded-xl hover:bg-stone-200 transition-colors">
           🔄 刷新
         </button>
       </div>
@@ -177,7 +177,7 @@ export function StatsPage() {
                   <span className="text-xs font-bold text-gray-400 w-5">{i + 1}</span>
                   <div className="flex-1 bg-gray-100 rounded-full h-6 relative overflow-hidden">
                     <div
-                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full transition-all"
+                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-stone-500 to-stone-500 rounded-full transition-all"
                       style={{ width: `${Math.max((s.count / stats.topSearches[0].count) * 100, 8)}%` }}
                     />
                     <span className="absolute inset-0 flex items-center px-3 text-xs text-gray-700 font-medium">
@@ -235,7 +235,7 @@ export function StatsPage() {
                   <tr key={i} className="border-b border-gray-50">
                     <td className="py-2 text-gray-700">🔍 {s.query}</td>
                     <td className="py-2">
-                      <span className={`px-2 py-0.5 text-xs rounded-full ${s.source === 'ai' ? 'bg-purple-100 text-purple-700' : 'bg-gray-100 text-gray-600'}`}>
+                      <span className={`px-2 py-0.5 text-xs rounded-full ${s.source === 'ai' ? 'bg-stone-200 text-stone-700' : 'bg-gray-100 text-gray-600'}`}>
                         {s.source === 'ai' ? '🤖 AI' : '📦 本地'}
                       </span>
                     </td>

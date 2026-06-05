@@ -14,7 +14,7 @@ export function IngredientCard({ ingredient, compact = false }: IngredientCardPr
     return (
       <div
         onClick={() => navigate(`/ingredient/${ingredient.id}`)}
-        className="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 hover:border-purple-300 hover:shadow-sm cursor-pointer transition-all"
+        className="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 hover:border-stone-400 hover:shadow-sm cursor-pointer transition-all"
       >
         <div className="flex items-center gap-2 min-w-0">
           <span className="font-medium text-gray-800 truncate">{ingredient.name}</span>
@@ -28,7 +28,7 @@ export function IngredientCard({ ingredient, compact = false }: IngredientCardPr
   return (
     <div
       onClick={() => navigate(`/ingredient/${ingredient.id}`)}
-      className="p-4 bg-white rounded-xl border border-gray-200 hover:border-purple-300 hover:shadow-md cursor-pointer transition-all"
+      className="p-4 bg-white rounded-xl border border-gray-200 hover:border-stone-400 hover:shadow-md cursor-pointer transition-all"
     >
       <div className="flex items-start justify-between mb-2">
         <div>
@@ -41,7 +41,7 @@ export function IngredientCard({ ingredient, compact = false }: IngredientCardPr
       <div className="flex flex-wrap gap-1 mt-3">
         <span className="px-2 py-0.5 text-xs bg-gray-100 text-gray-600 rounded-full">{ingredient.category}</span>
         {ingredient.tags.slice(0, 2).map((tag) => (
-          <span key={tag} className="px-2 py-0.5 text-xs bg-purple-50 text-purple-600 rounded-full">{tag}</span>
+          <span key={tag} className="px-2 py-0.5 text-xs bg-stone-100 text-stone-700 rounded-full">{tag}</span>
         ))}
       </div>
     </div>

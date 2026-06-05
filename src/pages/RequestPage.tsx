@@ -47,7 +47,7 @@ export function RequestPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
-      <button onClick={() => navigate(-1)} className="text-sm text-gray-500 hover:text-purple-600 mb-4 inline-flex items-center gap-1">
+      <button onClick={() => navigate(-1)} className="text-sm text-gray-500 hover:text-stone-700 mb-4 inline-flex items-center gap-1">
         ← 返回
       </button>
 
@@ -68,7 +68,7 @@ export function RequestPage() {
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
               placeholder="例如：兰蔻小黑瓶精华"
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-stone-500 focus:ring-2 focus:ring-stone-200 outline-none transition-all"
               required
             />
           </div>
@@ -82,13 +82,13 @@ export function RequestPage() {
               value={brand}
               onChange={(e) => setBrand(e.target.value)}
               placeholder="例如：Lancôme 兰蔻"
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-stone-500 focus:ring-2 focus:ring-stone-200 outline-none transition-all"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all shadow-md"
+            className="w-full py-3 bg-gradient-to-r from-stone-800 to-stone-600 text-white font-bold rounded-xl hover:from-stone-700 hover:to-stone-700 transition-all shadow-md"
           >
             🚀 提交申请
           </button>
@@ -151,9 +151,9 @@ export function RequestPage() {
       )}
 
       {/* 说明 */}
-      <div className="mt-10 p-6 bg-purple-50 rounded-2xl border border-purple-200">
+      <div className="mt-10 p-6 bg-stone-100 rounded-2xl border border-stone-300">
         <h3 className="font-semibold text-purple-800 mb-3">💡 关于产品分析</h3>
-        <div className="space-y-2 text-sm text-purple-700">
+        <div className="space-y-2 text-sm text-stone-700">
           <p>📊 <strong>我们怎么分析？</strong> 通过查询公开成分数据库和品牌官方信息，获取产品的完整成分表。</p>
           <p>🧪 <strong>每个成分都会：</strong> 标注风险等级、解释对皮肤的作用、说明适合什么肤质。</p>
           <p>🔍 <strong>双重验证：</strong> 数据来源 + 人工复核，确保不胡编乱造。</p>

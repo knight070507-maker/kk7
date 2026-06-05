@@ -20,7 +20,7 @@ h1, h2, h3, h4 { font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif; fo
 .dark .bg-white { background-color: var(--surface); }
 .dark .bg-gray-50 { background-color: var(--bg); }
 .dark .bg-gray-100 { background-color: var(--surface); }
-.dark .bg-purple-50, .dark .bg-purple-100 { background-color: #241e18; }
+.dark .bg-stone-100, .dark .bg-stone-200 { background-color: #241e18; }
 .dark .bg-green-50, .dark .bg-emerald-50 { background-color: #1c2418; }
 .dark .bg-red-50 { background-color: #241a18; }
 .dark .bg-yellow-50, .dark .bg-amber-50, .dark .bg-orange-50, .dark .bg-blue-50, .dark .bg-pink-50 { background-color: var(--surface); }
@@ -33,20 +33,20 @@ h1, h2, h3, h4 { font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif; fo
 .dark .border-gray-200, .dark .border-gray-100, .dark .border-gray-50 { border-color: var(--bd); }
 .dark .shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,.4); }
 .dark .shadow-lg { box-shadow: 0 8px 24px rgba(0,0,0,.5); }
-.dark .hover\:bg-gray-50:hover, .dark .hover\:bg-purple-50:hover, .dark .hover\:bg-purple-100:hover { background-color: var(--surface2); }
+.dark .hover\:bg-gray-50:hover, .dark .hover\:bg-stone-100:hover, .dark .hover\:bg-stone-200:hover { background-color: var(--surface2); }
 .dark input { background: var(--surface2); color: var(--t); border-color: var(--bd); }
 .dark input::placeholder { color: var(--t3); }
-.dark .text-purple-600 { color: #c4946c; }
-.dark .text-purple-700 { color: #c4946c; }
+.dark .text-stone-700 { color: #c4946c; }
+.dark .text-stone-700 { color: #c4946c; }
 .dark .text-green-600 { color: #7aaa6c; }
 .dark .text-red-600 { color: #c86050; }
 .dark .text-yellow-600 { color: #c4a040; }
-.dark .bg-purple-500 { background-color: #b8845c; }
-.dark .bg-purple-500:hover, .dark .bg-purple-600 { background-color: #a0704a; }
-.dark .bg-purple-600:hover { background-color: #a0704a; }
-.dark .from-purple-500, .dark .via-purple-400, .dark .to-pink-400, .dark .to-pink-500, .dark .from-purple-100, .dark .to-pink-100 { --tw-gradient-from: var(--surface); --tw-gradient-to: var(--surface2); }
-.dark .text-purple-100 { color: var(--t2); }
-.dark .text-purple-200 { color: var(--t3); }
+.dark .bg-stone-800 { background-color: #b8845c; }
+.dark .bg-stone-800:hover, .dark .bg-stone-700 { background-color: #a0704a; }
+.dark .bg-stone-700:hover { background-color: #a0704a; }
+.dark .from-stone-800, .dark .via-stone-500, .dark .to-stone-500, .dark .to-stone-600, .dark .from-stone-200, .dark .to-pink-100 { --tw-gradient-from: var(--surface); --tw-gradient-to: var(--surface2); }
+.dark .text-stone-200 { color: var(--t2); }
+.dark .text-stone-300 { color: var(--t3); }
 .dark .text-white { color: #fff; }
-.dark .border-purple-200, .dark .border-purple-300 { border-color: var(--bd); }
+.dark .border-stone-300, .dark .border-stone-400 { border-color: var(--bd); }
 .dark .bg-white\/80, .dark .bg-white\/50 { background-color: rgba(28, 26, 22, .85); }

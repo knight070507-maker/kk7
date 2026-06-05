@@ -196,7 +196,7 @@ export function RecommendPage() {
             <span>{Math.round(progress)}%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
-            <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-500" style={{ width: `${progress}%` }} />
+            <div className="bg-gradient-to-r from-stone-800 to-stone-600 h-2 rounded-full transition-all duration-500" style={{ width: `${progress}%` }} />
           </div>
         </div>
 
@@ -211,7 +211,7 @@ export function RecommendPage() {
           </div>
 
           {isMulti && (
-            <p className="text-sm text-purple-600 mb-3 bg-purple-50 px-3 py-1.5 rounded-lg">
+            <p className="text-sm text-stone-700 mb-3 bg-stone-100 px-3 py-1.5 rounded-lg">
               这道题可以多选。选完后点「下一题」继续。
             </p>
           )}
@@ -225,12 +225,12 @@ export function RecommendPage() {
                   onClick={() => handleAnswer(opt)}
                   className={`w-full text-left p-3 md:p-4 rounded-xl border-2 transition-all ${
                     selected
-                      ? 'border-purple-400 bg-purple-50 shadow-sm'
-                      : 'border-gray-200 hover:border-purple-200 hover:bg-gray-50'
+                      ? 'border-stone-500 bg-stone-100 shadow-sm'
+                      : 'border-gray-200 hover:border-stone-300 hover:bg-gray-50'
                   }`}
                 >
                   <span className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold mr-2 ${
-                    selected ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-600'
+                    selected ? 'bg-stone-800 text-white' : 'bg-gray-200 text-gray-600'
                   }`}>{opt.label}</span>
                   <span className="text-sm md:text-base text-gray-700">{opt.text}</span>
                 </button>
@@ -240,7 +240,7 @@ export function RecommendPage() {
 
           {isMulti && (
             <button onClick={handleMultiNext} disabled={multiSelect.size === 0}
-              className="mt-3 w-full py-2.5 bg-purple-500 hover:bg-purple-600 disabled:bg-gray-300 text-white font-medium rounded-xl transition-colors">
+              className="mt-3 w-full py-2.5 bg-stone-800 hover:bg-stone-700 disabled:bg-gray-300 text-white font-medium rounded-xl transition-colors">
               {isLast ? '查看测试结果 →' : `下一步 (已选 ${multiSelect.size} 项)`}
             </button>
           )}
@@ -273,10 +273,10 @@ export function RecommendPage() {
     return (
       <div className="max-w-3xl mx-auto px-4 py-6">
         {/* Result hero */}
-        <div className="bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-2xl p-6 md:p-8 text-center mb-6">
+        <div className="bg-gradient-to-br from-stone-800 to-stone-600 text-white rounded-2xl p-6 md:p-8 text-center mb-6">
           <span className="text-6xl md:text-7xl block mb-4">{info.emoji}</span>
           <h1 className="text-2xl md:text-3xl font-bold mb-1">{info.title}</h1>
-          <p className="text-purple-100 text-sm md:text-base">{info.subtitle}</p>
+          <p className="text-stone-200 text-sm md:text-base">{info.subtitle}</p>
         </div>
 
         {/* Description */}
@@ -285,7 +285,7 @@ export function RecommendPage() {
           <div className="mt-4 space-y-2">
             {info.tips.map((tip, i) => (
               <div key={i} className="flex items-start gap-2">
-                <span className="text-purple-500 mt-1">✦</span>
+                <span className="text-stone-800 mt-1">✦</span>
                 <p className="text-sm text-gray-600">{tip}</p>
               </div>
             ))}
@@ -302,7 +302,7 @@ export function RecommendPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {step.products.map((p) => (
                     <div key={p.name} onClick={() => navigate('/search?q=' + encodeURIComponent(p.name))}
-                      className="p-3 bg-white rounded-xl border border-gray-200 hover:border-purple-300 hover:shadow cursor-pointer transition-all">
+                      className="p-3 bg-white rounded-xl border border-gray-200 hover:border-stone-400 hover:shadow cursor-pointer transition-all">
                       <div className="flex items-start justify-between">
                         <div className="min-w-0">
                           <p className="font-medium text-gray-800 text-sm truncate">{p.name}</p>
@@ -345,7 +345,7 @@ export function RecommendPage() {
           <button onClick={restart} className="px-6 py-2.5 bg-gray-100 text-gray-700 font-medium rounded-xl hover:bg-gray-200 transition-colors text-sm">
             🔄 重新测试
           </button>
-          <button onClick={() => navigate('/explore')} className="px-6 py-2.5 bg-purple-500 text-white font-medium rounded-xl hover:bg-purple-600 transition-colors text-sm">
+          <button onClick={() => navigate('/explore')} className="px-6 py-2.5 bg-stone-800 text-white font-medium rounded-xl hover:bg-stone-700 transition-colors text-sm">
             🏆 查看编辑精选
           </button>
         </div>

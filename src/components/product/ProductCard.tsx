@@ -55,7 +55,7 @@ export function ProductCard({ product, analysis }: ProductCardProps) {
         <span className={`text-sm font-bold ${analysis.overallRating === 'safe' ? 'text-green-600' : analysis.overallRating === 'caution' ? 'text-yellow-600' : 'text-red-600'}`}>
           {getRatingLabel(analysis.overallRating)}
         </span>
-        <span className="text-xs text-purple-600 font-medium">查看详情 →</span>
+        <span className="text-xs text-stone-700 font-medium">查看详情 →</span>
       </div>
     </div>
   );

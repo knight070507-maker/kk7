@@ -13,7 +13,7 @@ export function UserMenu({ onLoginClick }: UserMenuProps) {
     return (
       <button
         onClick={onLoginClick}
-        className="px-4 py-1.5 bg-purple-500 hover:bg-purple-600 text-white text-sm font-medium rounded-full transition-colors"
+        className="px-4 py-1.5 bg-stone-800 hover:bg-stone-700 text-white text-sm font-medium rounded-full transition-colors"
       >
         登录
       </button>
@@ -24,9 +24,9 @@ export function UserMenu({ onLoginClick }: UserMenuProps) {
     <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 px-3 py-1.5 bg-purple-50 hover:bg-purple-100 rounded-full transition-colors"
+        className="flex items-center gap-2 px-3 py-1.5 bg-stone-100 hover:bg-stone-200 rounded-full transition-colors"
       >
-        <div className="w-7 h-7 rounded-full bg-purple-400 flex items-center justify-center text-white text-xs font-bold">
+        <div className="w-7 h-7 rounded-full bg-stone-500 flex items-center justify-center text-white text-xs font-bold">
           {user.email?.[0].toUpperCase() || '👤'}
         </div>
         <span className="text-sm text-gray-700 hidden md:inline max-w-[100px] truncate">

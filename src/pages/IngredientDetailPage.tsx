@@ -20,7 +20,7 @@ export function IngredientDetailPage() {
         <p className="mt-4 text-lg text-gray-500">找不到这个成分</p>
         <button
           onClick={() => navigate('/ingredients')}
-          className="mt-4 text-purple-600 hover:text-purple-700 font-medium"
+          className="mt-4 text-stone-700 hover:text-stone-700 font-medium"
         >
           ← 返回成分百科
         </button>
@@ -38,7 +38,7 @@ export function IngredientDetailPage() {
       {/* 返回 */}
       <button
         onClick={() => navigate(-1)}
-        className="text-sm text-gray-500 hover:text-purple-600 mb-4 inline-flex items-center gap-1"
+        className="text-sm text-gray-500 hover:text-stone-700 mb-4 inline-flex items-center gap-1"
       >
         ← 返回
       </button>
@@ -110,7 +110,7 @@ export function IngredientDetailPage() {
       {/* 标签 */}
       <div className="flex flex-wrap gap-2 mb-6">
         {ingredient.tags.map((tag) => (
-          <span key={tag} className="px-3 py-1 text-sm bg-purple-50 text-purple-700 rounded-full border border-purple-200">
+          <span key={tag} className="px-3 py-1 text-sm bg-stone-100 text-stone-700 rounded-full border border-stone-300">
             #{tag}
           </span>
         ))}
@@ -127,13 +127,13 @@ export function IngredientDetailPage() {
               <button
                 key={p.id}
                 onClick={() => navigate(`/product/${p.id}`)}
-                className="w-full text-left p-3 rounded-lg bg-gray-50 hover:bg-purple-50 transition-colors flex items-center justify-between"
+                className="w-full text-left p-3 rounded-lg bg-gray-50 hover:bg-stone-100 transition-colors flex items-center justify-between"
               >
                 <div>
                   <span className="font-medium text-gray-800">{p.name}</span>
                   <span className="text-xs text-gray-400 ml-2">{p.brand}</span>
                 </div>
-                <span className="text-xs text-purple-600">查看 →</span>
+                <span className="text-xs text-stone-700">查看 →</span>
               </button>
             ))}
           </div>

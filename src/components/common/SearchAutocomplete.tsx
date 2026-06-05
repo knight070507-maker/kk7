@@ -34,13 +34,13 @@ export function SearchAutocomplete() {
       <form onSubmit={handleSubmit}>
         <input type="text" value={text} onChange={e => { setText(e.target.value); setShow(true); }}
           onFocus={() => setShow(true)} placeholder="搜索产品或成分..."
-          className="w-full px-3 py-2 text-sm rounded-full border border-gray-300 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 outline-none transition-all" />
+          className="w-full px-3 py-2 text-sm rounded-full border border-gray-300 focus:border-stone-500 focus:ring-2 focus:ring-stone-200 outline-none transition-all" />
       </form>
       {show && suggestions.length > 0 && (
         <div className="absolute top-full mt-1 w-full bg-white rounded-xl shadow-lg border border-gray-200 z-50 overflow-hidden">
           {suggestions.map((s, i) => (
             <button key={i} onClick={() => { navigate(s.path); setShow(false); setText(''); }}
-              className="w-full text-left px-4 py-2.5 hover:bg-purple-50 transition-colors flex items-center gap-3 border-b border-gray-50 last:border-0">
+              className="w-full text-left px-4 py-2.5 hover:bg-stone-100 transition-colors flex items-center gap-3 border-b border-gray-50 last:border-0">
               <span className="text-lg">{s.type}</span>
               <div className="min-w-0">
                 <p className="text-sm font-medium text-gray-800 truncate">{s.label}</p>

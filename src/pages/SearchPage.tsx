@@ -205,13 +205,13 @@ export function SearchPage() {
 
         {/* AI 搜索区域 */}
         {query && !localResults.hasResults && !aiResult && !aiLoading && (
-          <div className="text-center py-12 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border-2 border-purple-200">
+          <div className="text-center py-12 bg-gradient-to-r from-stone-100 to-pink-50 rounded-2xl border-2 border-stone-300">
             <span className="text-6xl">🤖</span>
             <p className="mt-4 text-xl font-medium text-gray-700">数据库里还没有「{query}」</p>
             <p className="mt-2 text-gray-500">让我用 AI 实时上网搜索这个产品的成分，马上给你分析结果</p>
             <button
               onClick={runAIAnalysis}
-              className="mt-6 px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-2xl hover:from-purple-600 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl text-lg"
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-stone-800 to-stone-600 text-white font-bold rounded-2xl hover:from-stone-700 hover:to-stone-700 transition-all shadow-lg hover:shadow-xl text-lg"
             >
               🚀 AI 实时分析「{query}」
             </button>
@@ -222,7 +222,7 @@ export function SearchPage() {
         {/* AI 加载中 */}
         {aiLoading && (
           <div className="text-center py-16">
-            <div className="inline-block w-16 h-16 border-4 border-purple-200 border-t-purple-500 rounded-full animate-spin" />
+            <div className="inline-block w-16 h-16 border-4 border-stone-300 border-t-stone-800 rounded-full animate-spin" />
             <p className="mt-6 text-lg font-medium text-gray-700">🤖 AI 正在分析「{query}」...</p>
             <p className="mt-2 text-sm text-gray-400">正在搜索产品成分表 → 分析每种成分 → 生成报告</p>
           </div>
@@ -268,7 +268,7 @@ export function SearchPage() {
           const r = aiResult as Required<AIResult>;
           return (<section className="mb-10">
             <div className="flex items-center gap-2 mb-4">
-              <span className="px-2 py-0.5 text-xs bg-purple-100 text-purple-700 rounded-full font-medium">🤖 AI 分析</span>
+              <span className="px-2 py-0.5 text-xs bg-stone-200 text-stone-700 rounded-full font-medium">🤖 AI 分析</span>
               <h2 className="text-lg font-semibold text-gray-800">{r.productName}</h2>
               <span className="text-xs text-gray-400">{r.brand}</span>
             </div>
@@ -315,7 +315,7 @@ export function SearchPage() {
                     <div className={`w-1.5 h-8 rounded-full shrink-0 mt-0.5 ${ing.riskLevel === 0 ? 'bg-green-400' : ing.riskLevel === 1 ? 'bg-yellow-400' : ing.riskLevel === 2 ? 'bg-orange-400' : 'bg-red-400'}`} />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="font-medium text-gray-800 text-sm cursor-pointer hover:text-purple-600 underline decoration-dotted" onClick={() => navigate(`/search?q=${encodeURIComponent(ing.name)}`)}>{ing.name}</span>
+                        <span className="font-medium text-gray-800 text-sm cursor-pointer hover:text-stone-700 underline decoration-dotted" onClick={() => navigate(`/search?q=${encodeURIComponent(ing.name)}`)}>{ing.name}</span>
                         <span className="text-xs text-gray-400 hidden sm:inline">{ing.nameEn}</span>
                         <RiskBadge level={ing.riskLevel as any} size="sm" />
                       </div>

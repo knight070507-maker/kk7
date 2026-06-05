@@ -52,8 +52,8 @@ export function IngredientListPage() {
               onClick={() => setSelectedRisk(null)}
               className={`px-3 py-1 text-xs rounded-full border transition-colors ${
                 selectedRisk === null
-                  ? 'bg-purple-100 border-purple-300 text-purple-700'
-                  : 'bg-white border-gray-200 text-gray-600 hover:border-purple-200'
+                  ? 'bg-stone-200 border-stone-400 text-stone-700'
+                  : 'bg-white border-gray-200 text-gray-600 hover:border-stone-300'
               }`}
             >
               全部
@@ -64,8 +64,8 @@ export function IngredientListPage() {
                 onClick={() => setSelectedRisk(level)}
                 className={`px-3 py-1 text-xs rounded-full border transition-colors ${
                   selectedRisk === level
-                    ? 'bg-purple-100 border-purple-300 text-purple-700'
-                    : 'bg-white border-gray-200 text-gray-600 hover:border-purple-200'
+                    ? 'bg-stone-200 border-stone-400 text-stone-700'
+                    : 'bg-white border-gray-200 text-gray-600 hover:border-stone-300'
                 }`}
               >
                 {getRiskLabel(level)}
@@ -81,8 +81,8 @@ export function IngredientListPage() {
           onClick={() => setSelectedCategory(null)}
           className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
             selectedCategory === null
-              ? 'bg-purple-500 text-white border-purple-500'
-              : 'bg-white border-gray-200 text-gray-600 hover:border-purple-200'
+              ? 'bg-stone-800 text-white border-stone-800'
+              : 'bg-white border-gray-200 text-gray-600 hover:border-stone-300'
           }`}
         >
           全部分类
@@ -93,8 +93,8 @@ export function IngredientListPage() {
             onClick={() => setSelectedCategory(cat)}
             className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
               selectedCategory === cat
-                ? 'bg-purple-500 text-white border-purple-500'
-                : 'bg-white border-gray-200 text-gray-600 hover:border-purple-200'
+                ? 'bg-stone-800 text-white border-stone-800'
+                : 'bg-white border-gray-200 text-gray-600 hover:border-stone-300'
             }`}
           >
             {cat}

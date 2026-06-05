@@ -14,7 +14,7 @@ function PickCard({ pick }: { pick: EditorPick }) {
   };
   return (
     <div onClick={handleClick}
-      className="p-4 bg-white rounded-xl border border-gray-200 hover:border-purple-300 hover:shadow-md cursor-pointer transition-all"
+      className="p-4 bg-white rounded-xl border border-gray-200 hover:border-stone-400 hover:shadow-md cursor-pointer transition-all"
     >
       <div className="flex items-start justify-between mb-2">
         <div className="flex-1 min-w-0">
@@ -26,7 +26,7 @@ function PickCard({ pick }: { pick: EditorPick }) {
       <div className="flex items-center gap-1 mb-2">
         <span className={`px-2 py-0.5 text-xs rounded-full ${
           pick.sourceTag === 'derm-approved' ? 'bg-blue-100 text-blue-700' :
-          pick.sourceTag === 'science-backed' ? 'bg-purple-100 text-purple-700' :
+          pick.sourceTag === 'science-backed' ? 'bg-stone-200 text-stone-700' :
           pick.sourceTag === 'cult-classic' ? 'bg-amber-100 text-amber-700' :
           'bg-emerald-100 text-emerald-700'
         }`}>
@@ -71,7 +71,7 @@ export function ExplorePage() {
       <p className="text-sm text-gray-500 mb-2">基于皮肤科医生共识 + 化妆品化学家分析 + 全球口碑。不迷信品牌，只相信配方和效果。</p>
 
       {savedSkin && (
-        <div className="mb-6 p-3 bg-purple-50 rounded-xl border border-purple-200 text-sm text-purple-700 flex items-center gap-2">
+        <div className="mb-6 p-3 bg-stone-100 rounded-xl border border-stone-300 text-sm text-stone-700 flex items-center gap-2">
           💡 你的肤质是 <strong>{savedSkin}</strong>，已为你标注特别适合的产品。
           <button onClick={() => navigate('/recommend')} className="ml-2 underline font-medium">查看完整方案 →</button>
         </div>
@@ -79,9 +79,9 @@ export function ExplorePage() {
 
       {/* 标签筛选 */}
       <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-        <button onClick={() => setActiveTab('all')} className={`px-4 py-1.5 text-sm rounded-full whitespace-nowrap transition-colors ${activeTab === 'all' ? 'bg-purple-500 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>全部</button>
+        <button onClick={() => setActiveTab('all')} className={`px-4 py-1.5 text-sm rounded-full whitespace-nowrap transition-colors ${activeTab === 'all' ? 'bg-stone-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>全部</button>
         {sections.map(s => (
-          <button key={s.key} onClick={() => setActiveTab(s.key)} className={`px-4 py-1.5 text-sm rounded-full whitespace-nowrap transition-colors ${activeTab === s.key ? 'bg-purple-500 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>{s.title}</button>
+          <button key={s.key} onClick={() => setActiveTab(s.key)} className={`px-4 py-1.5 text-sm rounded-full whitespace-nowrap transition-colors ${activeTab === s.key ? 'bg-stone-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>{s.title}</button>
         ))}
       </div>
 
@@ -130,7 +130,7 @@ export function ExplorePage() {
               <div key={i} className="flex items-start gap-2 py-1.5">
                 <span className="text-xs font-bold text-amber-500 w-4">{i + 1}</span>
                 <div>
-                  <button onClick={() => navigate('/search?q=' + encodeURIComponent(item.name))} className="text-sm font-medium text-gray-700 hover:text-purple-600 text-left">
+                  <button onClick={() => navigate('/search?q=' + encodeURIComponent(item.name))} className="text-sm font-medium text-gray-700 hover:text-stone-700 text-left">
                     {item.name}
                   </button>
                   <p className="text-xs text-gray-400">{item.reason}</p>
@@ -147,9 +147,9 @@ export function ExplorePage() {
               { name: '珀莱雅双抗精华', reason: '国货之光，189元买麦角硫因+谷胱甘肽，社区好评如潮' },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-2 py-1.5">
-                <span className="text-xs font-bold text-purple-500 w-4">{i + 1}</span>
+                <span className="text-xs font-bold text-stone-800 w-4">{i + 1}</span>
                 <div>
-                  <button onClick={() => navigate('/search?q=' + encodeURIComponent(item.name))} className="text-sm font-medium text-gray-700 hover:text-purple-600 text-left">
+                  <button onClick={() => navigate('/search?q=' + encodeURIComponent(item.name))} className="text-sm font-medium text-gray-700 hover:text-stone-700 text-left">
                     {item.name}
                   </button>
                   <p className="text-xs text-gray-400">{item.reason}</p>

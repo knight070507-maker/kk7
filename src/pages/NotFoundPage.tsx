@@ -12,7 +12,7 @@ export function NotFoundPage() {
         <button onClick={() => navigate(-1)} className="px-5 py-2.5 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors text-sm font-medium">
           ← 返回上一页
         </button>
-        <button onClick={() => navigate('/')} className="px-5 py-2.5 bg-purple-500 text-white rounded-xl hover:bg-purple-600 transition-colors text-sm font-medium">
+        <button onClick={() => navigate('/')} className="px-5 py-2.5 bg-stone-800 text-white rounded-xl hover:bg-stone-700 transition-colors text-sm font-medium">
           🏠 回首页
         </button>
       </div>

@@ -56,16 +56,16 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
           <input
             type="email" value={email} onChange={(e) => setEmail(e.target.value)}
             placeholder="邮箱地址" required
-            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 outline-none text-sm"
+            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-stone-500 focus:ring-2 focus:ring-stone-200 outline-none text-sm"
           />
           <input
             type="password" value={password} onChange={(e) => setPassword(e.target.value)}
             placeholder="密码（至少6位）" required minLength={6}
-            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 outline-none text-sm"
+            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-stone-500 focus:ring-2 focus:ring-stone-200 outline-none text-sm"
           />
           <button
             type="submit" disabled={loading}
-            className="w-full py-2.5 bg-purple-500 hover:bg-purple-600 disabled:bg-purple-300 text-white font-bold rounded-xl transition-colors"
+            className="w-full py-2.5 bg-stone-800 hover:bg-stone-700 disabled:bg-stone-400 text-white font-bold rounded-xl transition-colors"
           >
             {loading ? '请稍候...' : isLogin ? '登录' : '注册'}
           </button>
@@ -80,7 +80,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
           {isLogin ? '还没有账号？' : '已有账号？'}
           <button
             onClick={() => { setIsLogin(!isLogin); setError(''); setSuccess(''); }}
-            className="ml-1 text-purple-600 hover:text-purple-700 font-medium"
+            className="ml-1 text-stone-700 hover:text-stone-700 font-medium"
           >
             {isLogin ? '立即注册' : '去登录'}
           </button>

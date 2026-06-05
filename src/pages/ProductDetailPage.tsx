@@ -19,7 +19,7 @@ export function ProductDetailPage() {
       <div className="max-w-4xl mx-auto px-4 py-16 text-center">
         <span className="text-5xl">😕</span>
         <p className="mt-4 text-lg text-gray-500">找不到这个产品</p>
-        <button onClick={() => navigate('/')} className="mt-4 text-purple-600 hover:text-purple-700 font-medium">
+        <button onClick={() => navigate('/')} className="mt-4 text-stone-700 hover:text-stone-700 font-medium">
           ← 返回首页
         </button>
       </div>
@@ -47,14 +47,14 @@ export function ProductDetailPage() {
       {jsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />}
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* 返回 */}
-      <button onClick={() => navigate(-1)} className="text-sm text-gray-500 hover:text-purple-600 mb-4 inline-flex items-center gap-1">
+      <button onClick={() => navigate(-1)} className="text-sm text-gray-500 hover:text-stone-700 mb-4 inline-flex items-center gap-1">
         ← 返回
       </button>
 
       {/* 产品标题 */}
       <div className="mb-4">
         <div className="flex items-center gap-3 mb-2">
-          <span className="px-3 py-1 text-xs bg-purple-100 text-purple-700 rounded-full font-medium">
+          <span className="px-3 py-1 text-xs bg-stone-200 text-stone-700 rounded-full font-medium">
             {productCategoryLabels[product.category]}
           </span>
           <span className="text-sm text-gray-500">{product.brand}</span>
@@ -108,11 +108,11 @@ export function ProductDetailPage() {
 
         {/* 针对问题 */}
         {product.targets && product.targets.length > 0 && (
-          <div className="p-4 bg-white rounded-xl border border-purple-200">
-            <h4 className="text-sm font-semibold text-purple-700 mb-2">🎯 针对问题</h4>
+          <div className="p-4 bg-white rounded-xl border border-stone-300">
+            <h4 className="text-sm font-semibold text-stone-700 mb-2">🎯 针对问题</h4>
             <div className="flex flex-wrap gap-1">
               {product.targets.map((t) => (
-                <span key={t} className="px-2 py-0.5 text-xs bg-purple-50 text-purple-700 rounded-full">{t}</span>
+                <span key={t} className="px-2 py-0.5 text-xs bg-stone-100 text-stone-700 rounded-full">{t}</span>
               ))}
             </div>
           </div>
@@ -150,7 +150,7 @@ export function ProductDetailPage() {
       {/* 对比 + 分享按钮 */}
       <div className="mb-4 flex gap-2 flex-wrap">
         <button onClick={() => navigate(`/compare?a=${product.id}`)}
-          className="px-4 py-2 bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors text-sm font-medium">
+          className="px-4 py-2 bg-stone-100 dark:bg-purple-900/30 text-stone-700 dark:text-stone-500 border border-stone-300 dark:border-purple-800 rounded-xl hover:bg-stone-200 dark:hover:bg-purple-900/50 transition-colors text-sm font-medium">
           📊 对比其他产品
         </button>
         <button onClick={() => {

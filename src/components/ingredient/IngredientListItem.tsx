@@ -71,14 +71,14 @@ export function IngredientListItem({ ingredient, index, expanded = false, onTogg
               {ingredient.category}
             </span>
             {ingredient.tags.map((tag) => (
-              <span key={tag} className="px-2 py-0.5 text-xs bg-purple-100 text-purple-700 rounded-full">
+              <span key={tag} className="px-2 py-0.5 text-xs bg-stone-200 text-stone-700 rounded-full">
                 {tag}
               </span>
             ))}
           </div>
           <button
             onClick={(e) => { e.stopPropagation(); navigate(`/ingredient/${ingredient.id}`); }}
-            className="mt-3 text-sm text-purple-600 hover:text-purple-700 font-medium"
+            className="mt-3 text-sm text-stone-700 hover:text-stone-700 font-medium"
           >
             查看完整信息 →
           </button>

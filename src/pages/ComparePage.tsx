@@ -131,7 +131,7 @@ export function ComparePage() {
                 <div key={ing.id} className={`flex items-center gap-1.5 text-xs py-0.5 px-1 rounded ${isShared ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800' : ''}`}>
                   <span className="text-gray-400 w-3">{i + 1}</span>
                   <div className={`w-1 h-3 rounded-full ${ing.riskLevel === 0 ? 'bg-green-400' : ing.riskLevel === 1 ? 'bg-yellow-400' : ing.riskLevel === 2 ? 'bg-orange-400' : 'bg-red-400'}`} />
-                  <span className="text-gray-700 dark:text-gray-300 truncate flex-1 cursor-pointer hover:text-purple-600" onClick={() => navigate(`/ingredient/${ing.id}`)}>{ing.name}</span>
+                  <span className="text-gray-700 dark:text-gray-300 truncate flex-1 cursor-pointer hover:text-stone-700" onClick={() => navigate(`/ingredient/${ing.id}`)}>{ing.name}</span>
                   {isShared && <span className="text-green-500 text-xs shrink-0">相同</span>}
                   <RiskBadge level={ing.riskLevel} size="sm" showLabel={false} />
                 </div>
@@ -141,7 +141,7 @@ export function ComparePage() {
         </div>
       ) : (
         <button onClick={() => setPicker(side)} aria-label="选择产品进行对比"
-          className="w-full h-48 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl flex items-center justify-center text-gray-400 dark:text-gray-500 hover:border-purple-400 hover:text-purple-400 transition-colors">
+          className="w-full h-48 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl flex items-center justify-center text-gray-400 dark:text-gray-500 hover:border-stone-500 hover:text-stone-500 transition-colors">
           <div className="text-center">
             <span className="text-3xl block mb-2">📦</span>
             <span className="text-sm">点击选择产品</span>
@@ -175,7 +175,7 @@ export function ComparePage() {
               <span className="font-bold text-gray-800 dark:text-gray-200">{comparison.overlapPct}%</span>
             </div>
             <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-              <div className="bg-purple-500 h-2.5 rounded-full transition-all" style={{ width: `${comparison.overlapPct}%` }} />
+              <div className="bg-stone-800 h-2.5 rounded-full transition-all" style={{ width: `${comparison.overlapPct}%` }} />
             </div>
             <p className="text-xs text-gray-400 mt-1">
               {comparison.overlapPct > 60 ? '两款产品核心配方相似，可能有替代关系。' :
@@ -228,8 +228,8 @@ export function ComparePage() {
           </div>
 
           {/* 结论 */}
-          <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
-            <h3 className="font-semibold text-purple-800 dark:text-purple-300 mb-2 text-sm">📋 综合结论</h3>
+          <div className="p-4 bg-stone-100 dark:bg-purple-900/20 rounded-xl border border-stone-300 dark:border-purple-800">
+            <h3 className="font-semibold text-purple-800 dark:text-stone-400 mb-2 text-sm">📋 综合结论</h3>
             <ul className="space-y-1.5">
               {comparison.conclusion.map((line, i) => (
                 <li key={i} className="text-sm text-gray-700 dark:text-gray-300">{line}</li>
@@ -248,11 +248,11 @@ export function ComparePage() {
               <button onClick={() => setPicker(null)} className="text-gray-400 hover:text-gray-600">✕</button>
             </div>
             <input type="text" value={filter} onChange={e => setFilter(e.target.value)} placeholder="搜索产品..." aria-label="搜索产品进行对比"
-              className="w-full px-3 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 outline-none mb-3 focus:border-purple-400" />
+              className="w-full px-3 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 outline-none mb-3 focus:border-stone-500" />
             <div className="overflow-y-auto flex-1 space-y-1">
               {products.slice(0, 25).map(p => (
                 <button key={p.id} onClick={() => selectProduct(p.id, picker)}
-                  className="w-full text-left px-3 py-2 rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/30 flex items-center justify-between transition-colors">
+                  className="w-full text-left px-3 py-2 rounded-lg hover:bg-stone-100 dark:hover:bg-purple-900/30 flex items-center justify-between transition-colors">
                   <div className="min-w-0">
                     <span className="text-sm font-medium text-gray-800 dark:text-gray-200 truncate block">{p.name}</span>
                     <span className="text-xs text-gray-400">{p.brand} · {productCategoryLabels[p.category]}</span>
