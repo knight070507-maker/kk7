@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { getProductById, productCategoryLabels } from '../data/products';
 import { getIngredientsByIds } from '../data/ingredients';
 import { analyzeProduct } from '../utils/analysis';
@@ -28,7 +29,22 @@ export function ProductDetailPage() {
   const ingredients = getIngredientsByIds(product.ingredientIds);
   const analysis = analyzeProduct(product);
 
+  // SEO: 动态标题
+  useEffect(() => { document.title = `${product.name} - 成分分析 | 成分说明书`; }, [product.name]);
+
+  // JSON-LD 结构化数据
+  const jsonLd = product ? {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    brand: { '@type': 'Brand', name: product.brand },
+    description: product.summary || product.name,
+    ...(product.price ? { offers: { '@type': 'Offer', price: product.price, priceCurrency: 'CNY' } } : {}),
+  } : null;
+
   return (
+    <>
+      {jsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />}
     <div className="max-w-4xl mx-auto px-4 py-8">
       {/* 返回 */}
       <button onClick={() => navigate(-1)} className="text-sm text-gray-500 hover:text-purple-600 mb-4 inline-flex items-center gap-1">
@@ -162,5 +178,6 @@ export function ProductDetailPage() {
         💡 <strong>温馨提示：</strong>成分表按含量从高到低排列，排名越靠前含量越高。一般前5-7种成分占了产品的大部分。
       </div>
     </div>
+    </>
   );
 }
