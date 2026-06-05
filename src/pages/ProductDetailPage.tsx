@@ -131,11 +131,19 @@ export function ProductDetailPage() {
         )}
       </div>
 
-      {/* 对比按钮 */}
-      <div className="mb-4">
+      {/* 对比 + 分享按钮 */}
+      <div className="mb-4 flex gap-2 flex-wrap">
         <button onClick={() => navigate(`/compare?a=${product.id}`)}
-          className="px-4 py-2 bg-purple-50 text-purple-600 border border-purple-200 rounded-xl hover:bg-purple-100 transition-colors text-sm font-medium">
+          className="px-4 py-2 bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors text-sm font-medium">
           📊 对比其他产品
+        </button>
+        <button onClick={() => {
+          const url = window.location.href;
+          if (navigator.share) { navigator.share({ title: product.name, url }); }
+          else { navigator.clipboard.writeText(url).then(() => alert('链接已复制！')); }
+        }}
+          className="px-4 py-2 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-sm font-medium">
+          📤 分享
         </button>
       </div>
 

@@ -4,11 +4,13 @@ import { UserMenu } from '../auth/UserMenu';
 import { AuthModal } from '../auth/AuthModal';
 import { SearchAutocomplete } from '../common/SearchAutocomplete';
 import { useAuth } from '../../contexts/AuthContext';
+import { useTheme } from '../../contexts/ThemeContext';
 import { supabase } from '../../lib/supabase';
 
 export function Header() {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { theme, toggle: toggleTheme } = useTheme();
   const [showAuth, setShowAuth] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [history, setHistory] = useState<{ query: string; created_at: string }[]>([]);
@@ -23,7 +25,7 @@ export function Header() {
 
   return (
     <>
-      <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+      <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-3 md:px-4 py-2.5 md:py-3 flex items-center gap-2 md:gap-4">
           {/* Mobile hamburger */}
           <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-1.5 text-gray-600 hover:bg-gray-100 rounded-lg">
@@ -68,6 +70,9 @@ export function Header() {
           {/* Search with autocomplete */}
           <SearchAutocomplete />
 
+          <button onClick={toggleTheme} className="p-1.5 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" title="切换深色模式">
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
           <UserMenu onLoginClick={() => setShowAuth(true)} />
         </div>
 
